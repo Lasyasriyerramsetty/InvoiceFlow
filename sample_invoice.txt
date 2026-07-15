@@ -1,0 +1,42 @@
+INVOICE
+
+Invoice #: INV-2024-001245
+Date: July 10, 2024
+Due Date: July 25, 2024
+
+Bill To:
+TechVest Corporation
+123 Business Park, Suite 500
+New York, NY 10001
+
+Ship To:
+TechVest Corporation
+123 Business Park, Suite 500
+New York, NY 10001
+
+Vendor: Global Tech Solutions
+123 Technology Drive
+San Francisco, CA 94105
+
+ITEMS:
+--------------------------------------------------------
+Item              | Qty | Unit Price | Amount
+--------------------------------------------------------
+Software License  | 10  | $1,500.00  | $15,000.00
+Consulting Hours  | 25  | $200.00    | $5,000.00
+Support Package   | 1   | $2,500.00  | $2,500.00
+--------------------------------------------------------
+
+Subtotal:                    $22,500.00
+Tax (8.5%):                  $1,912.50
+Shipping:                    $150.00
+--------------------------------------------------------
+Total Amount:                $24,562.50
+
+Payment Terms: Net 15
+GST Number: 27AABCG1234F1Z5
+
+Notes: Annual software subscription renewal with premium support.
+Purchase Order Reference: PO-2024-7890
+
+Thank you for your business!

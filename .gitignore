@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.venv/
+env/
+.env
+.env.local
+.env.*.local
+
+# Build
+.next/
+out/
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+playwright-report/
+test-results/
+
+# Logs & data
+*.log
+logs/
+data/chroma/
+data/uploads/
+*.db
+
+# Secrets
+*.pem
+*.key
+credentials.json
+secrets/
+
+# Docker
+.docker/
+
+# ML models cache
+ml/models/*.pkl
+ml/models/*.joblib
+
+# Local databases & scratch files
+ap_invoice.db
+ap_invoice.db-journal
+*.sqlite3
+pytest_output.log
+fail.log

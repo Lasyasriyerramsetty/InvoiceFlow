@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/* Light Theme - Official Enterprise Colors */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+  --primary: #0f172a;
+  --primary-foreground: #f8fafc;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0ea5e9;
+  --radius: 0.5rem;
+}
+
+/* Dark Theme - Professional Dark Mode */
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+  --primary: #f8fafc;
+  --primary-foreground: #0f172a;
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #1e293b;
+  --accent-foreground: #f8fafc;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #f8fafc;
+  --border: #334155;
+  --input: #334155;
+  --ring: #38bdf8;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Enterprise Blue Accent Colors */
+:root {
+  --enterprise-blue: #0ea5e9;
+  --enterprise-indigo: #6366f1;
+  --enterprise-emerald: #10b981;
+  --enterprise-amber: #f59e0b;
+  --enterprise-rose: #f43f5e;
+  --enterprise-slate: #64748b;
+}
+
+/* Professional Card Shadows */
+.shadow-enterprise {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.dark .shadow-enterprise {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.6);
+}
+
+/* Button Styles */
+.btn-enterprise {
+  background: linear-gradient(180deg, var(--enterprise-blue), var(--enterprise-indigo));
+  color: white;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-enterprise:hover {
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Status Colors - Official Look */
+.status-success {
+  background-color: rgba(16, 185, 128, 0.1);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 128, 0.2);
+}
+
+.status-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.status-error {
+  background-color: rgba(244, 63, 94, 0.1);
+  color: #e11d48;
+  border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.status-info {
+  background-color: rgba(14, 165, 233, 0.1);
+  color: #0284c7;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.dark .status-success {
+  background-color: rgba(16, 185, 128, 0.15);
+  color: #34d399;
+}
+
+.dark .status-warning {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+.dark .status-error {
+  background-color: rgba(244, 63, 94, 0.15);
+  color: #fda4af;
+}
+
+.dark .status-info {
+  background-color: rgba(14, 165, 233, 0.15);
+  color: #7dd3fc;
+}
+
+/* Dashboard Card Styles */
+.card-enterprise {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.dark .card-enterprise {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+/* Animated status indicator */
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.status-indicator {
+  animation: pulse-subtle 2s infinite ease-in-out;
+}

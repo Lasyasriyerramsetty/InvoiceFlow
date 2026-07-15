@@ -1,0 +1,163 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ap-postgres
+    environment:
+      POSTGRES_USER: ap_user
+      POSTGRES_PASSWORD: ap_secure_password
+      POSTGRES_DB: ap_invoice_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ap_user -d ap_invoice_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: ap-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  minio:
+    image: minio/minio:latest
+    container_name: ap-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ap_minio_admin
+      MINIO_ROOT_PASSWORD: ap_minio_secure_password
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: ap-chromadb
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      IS_PERSISTENT: "TRUE"
+      ANONYMIZED_TELEMETRY: "FALSE"
+
+  db-migrate:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: ap-db-migrate
+    command: sh -c "alembic upgrade head && echo 'Migrations applied.'"
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://ap_user:ap_secure_password@postgres:5432/ap_invoice_db
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: ap-backend
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://ap_user:ap_secure_password@postgres:5432/ap_invoice_db
+      REDIS_URL: redis://redis:6379/0
+      MINIO_ENDPOINT: minio:9000
+      CHROMA_HOST: chromadb
+      CHROMA_PORT: 8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_started
+      chromadb:
+        condition: service_started
+      db-migrate:
+        condition: service_completed_successfully
+    volumes:
+      - ./backend:/app/backend
+      - ./agents:/app/agents
+      - ./rag:/app/rag
+      - ./ocr:/app/ocr
+      - ./ml:/app/ml
+      - ./shared:/app/shared
+
+  celery-worker:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: ap-celery-worker
+    command: celery -A backend.app.workers.celery_app worker --loglevel=info --concurrency=4
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://ap_user:ap_secure_password@postgres:5432/ap_invoice_db
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      - backend
+      - redis
+    volumes:
+      - ./backend:/app/backend
+      - ./agents:/app/agents
+      - ./rag:/app/rag
+      - ./ocr:/app/ocr
+      - ./ml:/app/ml
+      - ./shared:/app/shared
+
+  celery-beat:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: ap-celery-beat
+    command: celery -A backend.app.workers.celery_app beat --loglevel=info
+    env_file:
+      - .env
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      - redis
+      - celery-worker
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ap-frontend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+  redis_data:
+  minio_data:
+  chroma_data:

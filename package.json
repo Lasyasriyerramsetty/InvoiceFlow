@@ -1,0 +1,33 @@
+{
+  "name": "invoiceflow-ai",
+  "version": "1.0.0",
+  "description": "Enterprise AI-powered Accounts Payable automation platform with multi-agent orchestration, intelligent 3-way matching, and fraud detection",
+  "author": "InvoiceFlow Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/invoiceflow-ai"
+  },
+    "scripts": {
+    "dev:backend": "uvicorn backend.app.main:app --reload",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:celery": "celery -A backend.app.workers.celery_app worker --loglevel=info",
+    "test": "pytest tests/ -v",
+    "db:migrate": "alembic upgrade head",
+    "db:migrations": "alembic revision --autogenerate -m",
+    "db:seed": "python -m backend.app.infrastructure.database.seed",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "features": [
+    "Multi-Agent AI Orchestration (9 agents)",
+    "3-Way Invoice Matching",
+    "Fraud Detection & Risk Scoring",
+    "AI Copilot for Natural Language Queries",
+    "Document Processing (Azure/GCP/PaddleOCR)",
+    "RAG Knowledge Base",
+    "JWT Authentication with RBAC",
+    "Audit Logging",
+    "Real-time Dashboard"
+  ]
+}
