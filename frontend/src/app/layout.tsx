@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AP Invoice & Contract Exception Agent",
+  title: "InvoiceFlow - AP Invoice & Contract Exception Agent",
   description: "Enterprise AI Accounts Payable automation platform",
 };
 

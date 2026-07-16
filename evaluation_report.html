@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvoiceFlow Evaluation Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-shadow { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .hover-scale { transition: transform 0.2s ease; }
+        .hover-scale:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-4xl font-bold mb-2">InvoiceFlow</h1>
+                    <p class="text-white/80">Evaluation Suite Report</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-white/80">Generated on</p>
+                    <p class="text-lg font-semibold">2026-07-16 11:16:55</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-xl p-6 card-shadow hover-scale">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="bg-blue-100 rounded-lg p-3">
+                        <i class="fas fa-inbox text-blue-600 text-2xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-gray-500 text-sm font-medium">Total Invoices</h3>
+                <p class="text-3xl font-bold text-gray-900">1</p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 card-shadow hover-scale">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="bg-emerald-100 rounded-lg p-3">
+                        <i class="fas fa-check-circle text-emerald-600 text-2xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-gray-500 text-sm font-medium">Straight-Through Rate</h3>
+                <p class="text-3xl font-bold text-gray-900">0.0%</p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 card-shadow hover-scale">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="bg-amber-100 rounded-lg p-3">
+                        <i class="fas fa-exclamation-triangle text-amber-600 text-2xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-gray-500 text-sm font-medium">Exception Rate</h3>
+                <p class="text-3xl font-bold text-gray-900">200.0%</p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 card-shadow hover-scale">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="bg-purple-100 rounded-lg p-3">
+                        <i class="fas fa-clock text-purple-600 text-2xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-gray-500 text-sm font-medium">Avg Processing Time</h3>
+                <p class="text-3xl font-bold text-gray-900">2450ms</p>
+            </div>
+        </div>
+
+        <!-- Business Metrics Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Business Metrics</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center pb-3 border-b">
+                        <span class="text-gray-600">Auto-Approved</span>
+                        <span class="font-semibold text-emerald-600">0</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-3 border-b">
+                        <span class="text-gray-600">Manual Review</span>
+                        <span class="font-semibold text-amber-600">1</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-3 border-b">
+                        <span class="text-gray-600">Total Savings</span>
+                        <span class="font-semibold text-purple-600">$0.00</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-3 border-b">
+                        <span class="text-gray-600">PO Match Rate</span>
+                        <span class="font-semibold text-blue-600">100.0%</span>
+                    </div>
+                    <div class="flex justify-between items-center pb-3 border-b">
+                        <span class="text-gray-600">Contract Match Rate</span>
+                        <span class="font-semibold text-indigo-600">100.0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent Performance -->
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Agent Performance</h2>
+                <div class="space-y-4">
+
+                    <div class="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-semibold text-gray-900 capitalize">document intake</h3>
+                                <p class="text-xs text-gray-500 mt-1">
+                                    1 executions • 450ms avg
+                                </p>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">
+                                100%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: 100.0%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-2">
+                            <span>Confidence: 98%</span>
+                            <span>Tools: 100% success</span>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-semibold text-gray-900 capitalize">invoice understanding</h3>
+                                <p class="text-xs text-gray-500 mt-1">
+                                    1 executions • 1200ms avg
+                                </p>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">
+                                100%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: 100.0%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-2">
+                            <span>Confidence: 96%</span>
+                            <span>Tools: 100% success</span>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-semibold text-gray-900 capitalize">po matching</h3>
+                                <p class="text-xs text-gray-500 mt-1">
+                                    1 executions • 15ms avg
+                                </p>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">
+                                100%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: 100.0%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-2">
+                            <span>Confidence: 90%</span>
+                            <span>Tools: 100% success</span>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-semibold text-gray-900 capitalize">exception detection</h3>
+                                <p class="text-xs text-gray-500 mt-1">
+                                    1 executions • 800ms avg
+                                </p>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">
+                                100%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: 100.0%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-2">
+                            <span>Confidence: 89%</span>
+                            <span>Tools: 100% success</span>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="font-semibold text-gray-900 capitalize">workflow</h3>
+                                <p class="text-xs text-gray-500 mt-1">
+                                    1 executions • 0ms avg
+                                </p>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">
+                                100%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+                            <div class="bg-emerald-500 h-2 rounded-full" style="width: 100.0%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-2">
+                            <span>Confidence: 93%</span>
+                            <span>Tools: 0% success</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Tools Section -->
+        <div class="bg-white rounded-xl p-6 card-shadow">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Top Tools Used</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                <div class="border rounded-lg p-4 flex items-center justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-indigo-100 rounded-lg p-2">
+                            <i class="fas fa-wrench text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-900 capitalize">gpt4 extraction</p>
+                            <p class="text-xs text-gray-500">invoice understanding</p>
+                        </div>
+                    </div>
+                    <span class="text-2xl font-bold text-indigo-600">1</span>
+                </div>
+
+                <div class="border rounded-lg p-4 flex items-center justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-indigo-100 rounded-lg p-2">
+                            <i class="fas fa-wrench text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-900 capitalize">azure ocr</p>
+                            <p class="text-xs text-gray-500">document intake</p>
+                        </div>
+                    </div>
+                    <span class="text-2xl font-bold text-indigo-600">1</span>
+                </div>
+
+                <div class="border rounded-lg p-4 flex items-center justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-indigo-100 rounded-lg p-2">
+                            <i class="fas fa-wrench text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-900 capitalize">exception classifier</p>
+                            <p class="text-xs text-gray-500">exception detection</p>
+                        </div>
+                    </div>
+                    <span class="text-2xl font-bold text-indigo-600">1</span>
+                </div>
+
+                <div class="border rounded-lg p-4 flex items-center justify-between hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-indigo-100 rounded-lg p-2">
+                            <i class="fas fa-wrench text-indigo-600"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-900 capitalize">db query po</p>
+                            <p class="text-xs text-gray-500">po matching</p>
+                        </div>
+                    </div>
+                    <span class="text-2xl font-bold text-indigo-600">1</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-gray-400">InvoiceFlow Evaluation Suite • Generated automatically</p>
+        </div>
+    </footer>
+</body>
+</html>

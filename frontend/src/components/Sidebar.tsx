@@ -28,15 +28,17 @@ export default function Sidebar() {
       {/* Platform Title */}
       <div className="p-6 border-b border-zinc-900">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-bold text-white shadow-md shadow-indigo-500/20">
-            AP
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center shadow-md shadow-indigo-500/20">
+            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white">
+              <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="currentColor" />
+            </svg>
           </div>
           <div>
             <h1 className="font-semibold text-sm leading-none text-zinc-100">
-              Antigravity Finance
+              InvoiceFlow
             </h1>
             <span className="text-[10px] text-zinc-500 font-medium tracking-wide uppercase">
-              Exception Agent v1.0
+              AP Automation
             </span>
           </div>
         </Link>
