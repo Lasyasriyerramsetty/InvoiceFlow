@@ -1,5 +1,4 @@
-
-or evaluation suite."""
+"""Tests for evaluation suite."""
 
 import pytest
 from datetime import datetime
@@ -75,7 +74,9 @@ class TestEvaluationHarness:
             trace,
             AgentType.PO_MATCHING,
             input_context={"invoice_id": "inv-1"},
-            tool_calls=[("ocr_service", ToolCallType.OCR, {}, {}, 120.0, True)],
+            tool_calls=[
+                ("ocr_service", ToolCallType.OCR, {}, {}, 120.0, True)
+            ],
             output_context={"match_score": 95},
             reasoning="PO matched successfully",
             confidence=0.95,

@@ -21,6 +21,7 @@ export default function Sidebar() {
     { name: "Invoices", href: "/invoices", icon: FileText },
     { name: "Upload Center", href: "/upload", icon: UploadCloud },
     { name: "Vendor Analytics", href: "/vendors", icon: Users },
+    { name: "Evaluation", href: "/evaluation", icon: ShieldAlert },
   ];
 
   return (

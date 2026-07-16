@@ -11,6 +11,7 @@ from slowapi.util import get_remote_address
 from starlette.responses import Response
 
 from backend.app.api.v1.auth import router as auth_router
+from backend.app.api.v1.evaluation import router as evaluation_router
 from backend.app.api.v1.invoices import router as invoices_router
 from backend.app.core.config import get_settings
 from backend.app.infrastructure.database.session import engine
@@ -55,6 +56,7 @@ app.add_middleware(
 
 app.include_router(auth_router, prefix=settings.api_v1_prefix)
 app.include_router(invoices_router, prefix=settings.api_v1_prefix)
+app.include_router(evaluation_router, prefix=settings.api_v1_prefix)
 
 
 @app.middleware("http")
